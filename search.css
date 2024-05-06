@@ -1,0 +1,791 @@
+body {
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    margin: 0;
+    padding-top: 5px;
+    padding-inline: 5px;
+    background-color: black;
+    color: #fff;
+}
+
+.spotify-container {
+    display: flex;
+}
+
+.sidebarcontainer {
+    width: auto; /* Width is set automatically based on content size */
+    max-width: 200px; /* Maximum width sidebar can expand to */
+    min-width: 110px; /* Minimum width sidebar will not go below */
+    height: 140px; /* Fixed height */
+    background-color: rgb(0, 0, 0);
+    padding-right: 23px;
+    box-shadow: 2px 0px 10px rgba(0, 0, 0, 0.2);
+    gap: 5px;
+    position: fixed;
+    top: 0; /* Set top to align with the top of the viewport */
+    left: 0; /* Set left to align with the left of the viewport */
+    z-index: 1; /* Keep it below the .main content layer */
+}
+
+.sidebar1 {
+    width: 92%;
+    height: 130px;
+    background: linear-gradient(to bottom, rgb(36, 36, 36), rgb(0, 0, 0));
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.logo{
+    margin-top: 5%;
+    margin-left: .5%;
+}
+
+.home-icon {
+    display: flex;
+    align-items: center;
+    color: rgb(130, 130, 130);
+    margin-top: 5%;
+    margin-left: .5%;
+}
+
+.home-icon i {
+    margin-right: 5px; /* Adjust the space between the icon and the text */
+    font-size: 25px;
+    cursor: pointer;
+    outline: none;
+}
+
+.home-icon{
+    font-size: 20px;
+}
+
+.home-icon .active{
+    color: white;
+}
+
+.search-icon {
+    display: flex;
+    align-items: center;
+    margin-top: 5%;
+    margin-left: .5%;
+}
+
+.search-icon i {
+    margin-right: 5px; 
+    font-size: 25px;
+    cursor: pointer;
+    outline: none;
+}
+
+.search-icon{
+    font-size: 20px;
+}
+
+.search-icon a {
+    color: white; 
+    text-decoration: none; 
+}
+
+.search-icon i.fa {
+    color: white; /* Set icon color to white */
+}
+
+.sidebar2 {
+    width: 92%;
+    height: 245px;
+    background: linear-gradient(to top, rgb(36, 36, 36), rgb(0, 0, 0));
+    padding: 20px;
+    overflow-y: auto;
+    overflow-x: hidden;
+    border-radius: 10px;
+}
+
+.library-icon .fa-arrow-right{
+    align-items: center;
+    color: rgb(130, 130, 130);
+    margin-top: 5%;
+    margin-left: 5.2%;
+}
+
+.library-icon .fa-arrow-right a {
+    display: flex;
+    align-items: center; /* This aligns the icons vertically in the center */
+}
+
+.library-icon i {
+    margin-right: 5px; 
+    font-size: 25px;
+    cursor: pointer;
+}
+
+.library-icon .fa-arrow-right {
+    font-size: 20px;
+}
+
+.library-icon .active{
+    color: white;
+}
+
+
+a{
+    text-decoration: none;
+    color: rgb(130, 130, 130);
+}
+
+a:hover{
+    color: white;
+}
+
+.createplaylist{
+    background-color: #383838;
+    width: 95%;
+    height: 60%;
+    border-style: none;
+    border-radius: 15px;
+    margin-top: 10px;
+    padding-inline: 10px;
+    padding-block-start: 5px;
+}
+
+.createplaylist p{
+    font-size: 1.7ex;
+}
+
+.browse-podcasts{
+    background-color: #383838;
+    width: 95%;
+    height: 70%;
+    border-style: none;
+    border-radius: 15px;
+    margin-top: 10px;
+    padding-inline: 10px;
+    padding-block-start: 5px;
+}
+
+.browse-podcasts p{
+    font-size: 1.7ex;
+}
+
+.sidebar2::-webkit-scrollbar{
+    display:none;
+    width: 0;
+}
+
+#btn3{
+    height: 35px;
+    width: 130px;
+    background-color: white;
+    color: black;
+    border-style: none;
+    border-radius: 30px;
+}
+
+#btn3:hover{
+    cursor: pointer;
+}
+
+#btn4{
+    height: 35px;
+    width: 170px;
+    background-color: white;
+    color: black;
+    border-style: none;
+    border-radius: 30px;
+}
+
+#btn4:hover{
+    cursor: pointer;
+}
+
+
+.sidebar-footer {
+    width: 92%;
+    height: 242px;
+    background: linear-gradient(to bottom, rgb(36, 36, 36), rgb(0, 0, 0));
+    padding-block: 20px;
+    padding-inline-end: 40px;
+    border-radius: 10px;
+    text-align: left;
+}
+
+.play-bar {
+    grid-area: now-playing-bar;
+    background-color: #181818;
+    border-top: 1px solid #202020;
+    height: 11vh;
+    z-index: 4;
+  }
+
+
+.audio-bar {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%; /* Full width of the viewport */
+    height: 60px; 
+    background: linear-gradient(to bottom, rgb(11.5, 11.5, 11.5), rgb(0, 0, 0));
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0 20px; /* Keep padding fixed on both sides */
+    z-index: 100; /* Ensure it's above other content */
+}
+
+.audio-controls {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    width: 75%; /* Take the full width of its parent */
+    padding: 0 20px; /* Optional: if you want to keep content from touching the sides */
+}
+
+.control-btn {
+    background: none;
+    border: none;
+    color: #fff;
+    font-size: 16px;
+    margin-right: 20px;
+    cursor: pointer;
+    outline: none;
+}
+
+.control-btn i {
+    font-size: 1.5em; /* Adjust size as needed */
+}
+
+.progress-container {
+    flex-grow: 1; /* Allow the progress container to grow and fill available space */
+    display: flex;
+    align-items: center;
+    margin-right: 20px; /* Fixed margin */
+}
+
+.volume-container {
+    display: flex;
+    align-items: center;
+    margin-right: 20px; /* Fixed margin */
+}
+
+.progress-bar {
+    width: 100%; /* Use 100% of its container for a responsive width */
+    height: 2px;
+}
+
+.volume-bar {
+    margin-right: 20px;
+    width: 100px; 
+    height: 2px;
+}
+
+.navlink li a{
+    text-decoration: none;
+    color: white;
+    font-size: 10px;
+}
+
+.navlink li{
+    list-style-type: none;
+    display: inline;
+    margin-right: 1em;
+}
+
+.navlink li a:hover{
+    color: rgb(31, 154, 0);
+}
+
+.language-switcher {
+    position: relative; 
+    display: inline-block;
+    margin-left: 40px;
+}
+
+#lang-btn {
+    background-color: rgb(24, 24, 24); 
+    color: white;
+    cursor: pointer;
+    padding: 10px 20px;
+    border-radius: 20px;
+    font-size: 16px;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-style: none;
+}
+
+#lang-btn i {
+    margin-right: 5px; 
+}
+
+#lang-btn:hover{
+    border-color: white;
+    border-style: solid;
+    border-width: 1px;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: rgb(43, 43, 43);
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 100;
+    bottom: 0; 
+    left: 100%;
+    transform: translateY(10%); 
+}
+
+.dropdown-content a {
+    color: white;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.language-switcher:hover .dropdown-content {
+    display: block;
+}
+
+.dropdown-content a:hover {
+    background-color: #6f6f6f;
+}
+
+.main {
+    background: linear-gradient(to bottom, rgb(36, 36, 36), rgb(0, 0, 0));
+    margin-left: 225px; /* Adjust this to match the max-width of .sidebarcontainer */
+    width: calc(100% - 225px); /* Adjust this to take into account the margin-left */
+    min-width: 60px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px; 
+    box-sizing: border-box;
+    border-radius: 10px;
+    transition: margin-left 0.3s, width 0.3s;
+    /* No changes below this line */
+}
+
+.header {
+    float: right;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: linear-gradient(to top, rgb(34, 34, 34), rgb(40, 40, 40));
+    width: 100%; /* This should remain as is */
+    padding: 0;
+    box-sizing: border-box;
+    border-radius: 10px;
+    /* No changes below this line */
+}
+
+.rightheader {
+    display: flex;
+    justify-content: space-between; /* Align items on opposite ends */
+    align-items: center; /* Align items vertically in the center */
+    background-color: rgba(0, 0, 0, 0);
+    height: 50px;
+    width: 100%;
+    border-top-left-radius: 10px;
+}
+
+.search-container {
+    flex-grow: 1;
+    display: flex;
+    justify-content: left;
+    align-items: left;
+}
+
+.searchBar {
+    display: flex;
+    flex-grow: .3;
+}
+
+.searchBar input[type="text"] {
+    color: #ffffff;
+    padding-inline-end: 5px;
+    padding-inline-start: 5px;
+    padding-block: 9.6px;
+    background: rgba(82, 82, 82, 0.5);
+    margin-right: 10px;
+    border-radius: 20px;
+    border-style: none;
+    font-size: 16px;
+    flex-grow: 1; /* This will make the input grow to fill the searchBar */
+    width: 100%;
+}
+
+#search2{
+    padding: 10px;
+    color: #717171;
+    margin-right: 10px;
+}
+
+#search2:hover{
+    padding: 10px;
+    color: #ffffff;
+    margin-right: 10px;
+}
+
+.App__song-navigation {
+    display: flex;
+    flex-direction: row;
+}
+
+.App__song-navigation-prev, .App__song-navigation-next {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background-color: rgba(0, 0, 0, 0.5);
+    color: #fff;
+    display: grid;
+    place-items: center;
+    margin-right: 16px;
+    margin-left: 6px;
+    cursor: not-allowed;
+}
+
+.App__song-navigation-prev svg, .App__song-navigation-next svg {
+    color: #fff;
+}
+
+/* Added a wrapper for the login and signup buttons */
+.auth-buttons {
+    display: flex;
+    align-items: center; /* Align buttons vertically in the center */
+}
+
+.login{
+    float: right;
+    margin-top: 3px;
+    margin-inline-end: 5px;
+}
+
+.signup{
+    float: right;
+    margin-top: 3px;
+    margin-inline-end: 5px;
+}
+
+#btn1{
+    height: 45px;
+    width: 90px;
+    background-color: white;
+    color: black;
+    border-style: none;
+    border-radius: 30px;
+}
+
+#btn1:hover{
+    cursor: pointer;
+}
+
+#btn2{
+    height: 45px;
+    width: 90px;
+    background: linear-gradient(to top, rgb(34, 34, 34), rgb(40, 40, 40));
+    color: rgb(157, 157, 157);
+    border-style: none;
+}
+
+#btn2:hover{
+    cursor: pointer;
+}
+
+.heading{
+    width: 100%;
+    height: 60px;
+    background-color: rgba(0, 0, 0, 0);
+    padding-inline-start: 10px;
+    font-size: 1.5ex;
+}
+
+.Browse-Playlists {
+    display: flex; /* Aligns playlist items in a row */
+    overflow-x: auto; /* Enables horizontal scrolling */
+    padding-inline: 5px; /* Optional: Adds some padding */
+    padding-block-end: 5px; /* Optional: Adds some padding */
+    gap: 10px; 
+    width: 100%;
+}
+
+.playlist {
+    flex: 0 0 auto;
+    position: relative;
+    width: calc(16% - 30px);
+    min-width: 150px;
+    height: 250px;
+    padding: 10px;
+    margin-top: 5px;
+    background:transparent;
+    left: 5px;
+    border-top-left-radius: 50%;
+    border-top-right-radius: 50%;
+    text-align: center;
+    transition: transform 0.2s ease-in-out;
+    overflow-x:scroll; 
+}
+
+.playlist:hover {
+    transform: scale(1.02);
+    background-color: #383838;
+}
+
+.playlist img {
+    width: 100%;
+    border-radius: 50%;
+    margin-bottom: 10px;
+}
+
+.playlist h3 {
+    position: absolute; /* Position the h3 absolutely within the .playlist */
+    bottom: 10px; /* Adjust this value to position the h3 from the bottom */
+    left: 0;
+    right: 0;
+    margin: 0 auto; /* Centers the text horizontally */
+    font-size: 14px;
+    color: #fff;
+    text-decoration: none;
+}
+
+
+.playlist::-webkit-scrollbar{
+    display:none;
+    width: 0;
+}
+
+.play-button {
+    width: 50px; 
+    height: 50px; 
+    border-radius: 50%; 
+    background-color: green;
+    position: absolute;
+    bottom: 50px; 
+    right: 10px; 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0; 
+    transition: opacity 0.3s ease;
+    z-index: 10; 
+}
+
+.playlist:hover .play-button {
+    opacity: 1; 
+}
+
+.Browse-Playlists::-webkit-scrollbar{
+    height: 8px;
+}
+
+.Browse-Playlists::-webkit-scrollbar-track {
+	background-color: rgb(0, 0, 0);
+}
+  
+.Browse-Playlists::-webkit-scrollbar-thumb {
+	background-color: rgba(133, 133, 133, 0.35);
+	border-radius: 5px;
+}
+
+.Browsing-Playlists {
+    padding-inline: 5px; /* Optional: Adds some padding */
+    padding-block-end: 5px; /* Optional: Adds some padding */
+    width: 100%;
+}
+
+.browse img {
+    width: 190px;
+    border-radius: 5%;
+    margin: 10px;
+    transition: width 0.5s ease-in-out; /* Smooth transition for width change */
+}
+
+.browse::-webkit-scrollbar{
+    display:none;
+    width: 0;
+}
+
+.Browsing-Playlists::-webkit-scrollbar{
+    height: 8px;
+}
+
+.Browsing-Playlists::-webkit-scrollbar-track {
+	background-color: rgb(0, 0, 0);
+}
+  
+.Browsing-Playlists::-webkit-scrollbar-thumb {
+	background-color: rgba(133, 133, 133, 0.35);
+	border-radius: 5px;
+}
+
+/* Base styles for the footer container */
+.main-footer footer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    background-color: rgba(0, 0, 0, 0); /* Or any other color as per your design */
+}
+
+/* Base styles for the table */
+table.footer {
+    width: 100%;
+    margin: 0; /* Remove margin to prevent horizontal scrollbar */
+    border-collapse: collapse; /* Collapse borders */
+}
+
+/* Styles for th and td to appear horizontally on larger screens */
+th, td {
+    display: table-cell;
+    text-align: left;
+    padding: 10px;
+    color: #ffffff; /* Adjust the color as needed */
+}
+
+
+@media (max-width: 100vw) {
+    /* Assuming 600px is the point where you want the footer to stack vertically */
+    .main{
+        margin-left: 225px;
+    }
+
+    .main-footer footer {
+        justify-content: center;
+        flex-direction: column;
+    }
+
+    .footer-column,
+    #social-icons {
+        width: 100%;
+        margin: 5px 0; /* Adjust margins for smaller screen */
+    }
+
+    #social-icons {
+        justify-content: center; /* Center social icons */
+    }
+}
+
+@media (max-width: 1500px) {
+    .browse img{
+        width: 14%;
+    }
+}
+
+@media (max-width: 1400px) {
+    .browse img{
+        width: 20%;
+    }
+}
+
+@media (max-width: 1300px) {
+    .browse img{
+        width: 20%;
+    }
+}
+
+@media (max-width: 1200px) {
+    .browse img{
+        width: 25%;
+    }
+}
+
+
+@media (max-width: 900px) {
+    .browse img{
+        width: 40%;
+    }
+}
+
+@media (max-width: 600px) {
+    .browse img{
+        width: 80%;
+    }
+}
+
+/* Hide table headers on small screens */
+@media screen and (max-width: 900px) {
+    thead {
+        display: none;
+    }
+
+}
+
+/* Adjust th and td for smaller screens */
+@media screen and (max-width: 600px) {
+
+    .main{
+        margin-left: 225px;
+    }
+
+    #btn1{
+        height: 30px;
+        width: 60px;
+    }
+
+    #btn2{
+        height: 30px;
+        width: 70px;
+    }
+
+    .App__song-navigation{
+        width: 25px;
+        height: 25px;
+    }
+
+    .heading{
+        font-size: small;
+    }
+
+
+    th, td {
+        display: block; /* Stack the table cells vertically */
+        width: 100%; /* Full width */
+        box-sizing: border-box; /* Include padding and border in the element's width */
+        text-align: center; /* Center-align text for a stacked layout */
+        padding: 10px 0; /* Adjust padding as needed */
+        border-bottom: none; /* Add a subtle separator */
+    }
+}
+
+@media screen and (max-width: 500px) {
+
+    th, td {
+        display: block; /* Stack the table cells vertically */
+        width: 100%; /* Full width */
+        box-sizing: border-box; /* Include padding and border in the element's width */
+        text-align: center; /* Center-align text for a stacked layout */
+        padding: 10px 0; /* Adjust padding as needed */
+        border-bottom: none; /* Add a subtle separator */
+    }
+}
+
+/* Styles for the final text at the bottom of the footer */
+.final-footer {
+    text-align: center;
+    color: #ffffff; /* Assuming your text color is white */
+    width: 100%;
+    padding: 10px 0;
+    padding-bottom: 20px ;
+    box-sizing: border-box;
+}
+
+::-moz-selection { 
+    color: black;
+    background: rgb(3, 151, 0);
+}
+  
+::selection {
+    color: black;
+    background: rgb(3, 151, 0);
+}
+
+::-webkit-scrollbar {
+	width: 5px;
+}
+  
+::-webkit-scrollbar-track {
+	background-color: rgb(0, 0, 0);
+}
+  
+::-webkit-scrollbar-thumb {
+	background-color: rgba(23, 173, 0,.4);
+	border-radius: 5px;
+}

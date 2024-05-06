@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Form spotify</title>
+    <link rel="stylesheet" href="register spotify.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="http://127.0.0.1:5500/spotify.html">
+</head>
+<body>
+    <header>
+        <img src="logomusic3.png" alt="logo"  height="70px" width="150px" >
+    </header>
+    <div class="box">
+        <form onsubmit="return validate()" action="login spotify.html">
+            <h1>Register</h1>
+            <div class="input-box">
+                <input type="text" id="Username"  placeholder="Enter Email" required>
+                <i class='bx bxs-user'></i>
+            </div>
+            <div class="input-box">
+                <input type="Password" id="Pass"  placeholder=" Create Password" required>
+                <i class='bx bxs-lock-alt' ></i>
+            </div>
+            <div class="remember-forget">
+                <label><input type="checkbox"> Remember me</label>
+                
+            </div>
+            <button  type="submit" class="btn">Register</button>
+            <div class="register-link">
+                <p>Already have an account? <a href="http://127.0.0.1:5500/login%20spotify.html">sign in</a></p>
+            </div>
+            
+        </form>
+    </div>
+    <script>
+        function validate(){
+           var username = document.getElementById("Username");
+           var password = document.getElementById("Pass");
+
+           if(username.value == "" || password.value=="")
+           {
+            return false;
+           }
+           else{
+            return true;
+           }
+        }
+        
+    </script>
+</body>
+</html>

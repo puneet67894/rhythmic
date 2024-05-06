@@ -1,0 +1,70 @@
+body{
+    background:  rgb(36, 36, 36);
+}
+*{
+    margin: 0;
+    padding: 0;
+}
+nav{
+    font-family: 'Ubuntu',sans-serif;
+}
+nav ul {
+    display: flex;
+    align-items: center ;
+    list-style-type: none;
+    height: 55px;
+    background-color: black;
+    color: white;
+
+
+}
+nav ul a {
+    padding: 0 12px;
+    margin-left: 20px;
+    color: white;
+}
+nav ul a:hover{
+    cursor: pointer;
+    background-color: #ffffffc4;
+    height: 100%;
+    color: black;
+    display: flex;
+    align-items: center;
+}
+
+.btn1{
+    padding: 7px;
+    border-radius: 10px;
+    border-color: none;
+    color: black;
+    background-color: #fff;
+}
+.btn1:hover{
+    background-color:transparent;
+    border: 2px solid white;
+    color: white;
+    cursor: pointer;
+
+}
+.brand img{
+   width: 110px;
+   height: 50px;
+   padding: 0 8px ; 
+   /* height: 48px; */
+
+}
+.brand{
+    display: flex;
+    align-items: center;
+    font-weight: bolder;
+}
+.text{
+    color: #fff;
+    text-align: left;
+    justify-content: center;
+    margin-top: 20px;
+    padding: 30px;
+    padding-right: 30px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    
+}
